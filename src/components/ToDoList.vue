@@ -2,6 +2,7 @@
 import Chose from "../Chose";
 import { reactive } from 'vue';
 import ToDoListItem from './ToDoListItem.vue';
+import ToDoForm from './ToDoForm.vue';
 
 const listeC = reactive([
     new Chose("menage"), 
@@ -18,10 +19,15 @@ const handleDelete = (chose) => {
     listeC.splice(index, 1);
     }
 };
+
+const handleAddChose = (texte) => {
+    listeC.push(new Chose(texte));
+}
 </script>
 
 <template>
     <h3>Liste des choses à faire</h3>
+    <ToDoForm @add-chose="handleAddChose"/>
     <ul>
     <ToDoListItem
         v-for="chose in listeC"
