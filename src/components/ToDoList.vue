@@ -1,5 +1,6 @@
 <script setup>
 import Chose from "../Chose"
+import { reactive } from 'vue';
 
 
 const listeC = reactive([
